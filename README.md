@@ -1,2 +1,2 @@
 # asespvwp
-Tema wordpress de ases pais vasco
+Tema de wordpress para pagina Ases Pais Vasco
