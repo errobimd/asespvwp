@@ -429,6 +429,16 @@ class Ithemes_Updater_Settings_Page {
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<input type="text" name="it-updater-username" placeholder="iThemes Username" value="<?php echo esc_attr( $post_data['username'] ); ?>" autocomplete="off" />
+							<input type="password" name="it-updater-password" placeholder="Password" value="<?php echo esc_attr( $post_data['password'] ); ?>" />
+							<input class="button-primary" type="submit" name="submit" value="<?php _e( 'Remove Licenses', 'it-l10n-backupbuddy' ); ?>" />
+							<input type="hidden" name="action" value="unlicense_packages" />
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 		</div>
 	</form>

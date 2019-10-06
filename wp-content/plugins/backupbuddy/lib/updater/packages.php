@@ -102,12 +102,12 @@ class Ithemes_Updater_Packages {
 				  'upgrade_notice' =>'upgrade_notice',
 				  'status' => 'active',
 				  'expiration' => time() + ( 12 * 36000000 ),
-				  'user'=>'GanjaParker',
+				  'user'=>'Actived',
 				  'package'=>'backupbuddy',
 				 )
 				);
-		return $details;
 
+		return $details;
 	}
 
 	public static function get_local_details() {

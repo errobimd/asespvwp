@@ -132,6 +132,17 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 			}
 			$s3Config['version'] = '2006-03-01'; // Some regions now requiring this.
 
+			if ( ! empty( $settings['client_settings'] ) ) {
+				foreach ( $settings['client_settings'] as $setting => $value ) {
+					$s3Config[$setting] = $value;
+				}
+			}
+			if ( ! empty( $settings['settings_override'] ) ) {
+				foreach ( $settings['settings_override'] as $setting => $value ) {
+					$settings[$setting] = $value;
+				}
+			}
+
 			if ( pb_backupbuddy::$options['log_level'] == '3' ) { // Full logging enabled.
 				//error_log( '$s3config: ' . print_r( $s3Config, true ) );
 			}
@@ -178,6 +189,12 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 			$settings['directory'] .= '/';
 		}
 
+		if ( ! empty( $settings['settings_override'] ) ) {
+			foreach ( $settings['settings_override'] as $setting => $value ) {
+				$settings[$setting] = $value;
+			}
+		}
+
 		return $settings;
 	} // End _formatSettings().
 
@@ -195,6 +212,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 		global $pb_backupbuddy_destination_errors;
 		if ( '1' == $settings['disabled'] ) {
 			$pb_backupbuddy_destination_errors[] = __( 'Error #48933: This destination is currently disabled. Enable it under this destination\'s Advanced Settings.', 'it-l10n-backupbuddy' );
+			BackupBuddy_Stash_API::send_fallback_upload_results( $settings, 'Error #48933: This destination is currently disabled. Enable it under this destination\'s Advanced Settings.' );
 			return false;
 		}
 		$settings = self::_init( $settings ); // Handles formatting & sanitizing settings.
@@ -242,7 +260,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					delete_transient( pb_backupbuddy_destination_live::LIVE_ACTION_TRANSIENT_NAME );
 				}
 
-				return self::_error ( 'Error #389383b: Unable to initiate multipart upload for file `' . $file . '`. Details: `' . $message . '`.' );
+				return self::_error ( 'Error #389383b: Unable to initiate multipart upload for file `' . $file . '`. Details: `' . "$e" . '`.' );
 			}
 
 			// Made it here so SUCCESS initiating multipart!
@@ -310,6 +328,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 						$contentLength = 0;
 					} else {
 						pb_backupbuddy::status( 'error', 'Error #392383: Missing multipart data and NOT a zero byte file. Aborting.' );
+						BackupBuddy_Stash_API::send_fallback_upload_results( $settings, 'Error #392383: Missing multipart data and NOT a zero byte file. Aborting.' );
 						return false;
 					}
 				} else {
@@ -343,7 +362,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					$response = self::$_client->uploadPart( $uploadArr );
 				} Catch( Exception $e ) {
 					@fclose( $f );
-					return self::_error( 'Error #3897923: Unable to upload file part for multipart upload of ID `' . $settings['_multipart_id'] . '`. Details: `' . $e->getMessage() . '`.' );
+					return self::_error( 'Error #3897923: Unable to upload file part for multipart upload of ID `' . $settings['_multipart_id'] . '`. Details: `' . "$e" . '`.' );
 				}
 				$uploadArr = '';
 				unset( $uploadArr );
@@ -399,6 +418,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 						pb_backupbuddy::status( 'details', 'Stash confirmed upload completition was successful.' );
 					} else {
 						pb_backupbuddy::status( 'error', 'Error #23972793: Error notifying Stash of upload success even after wait. Details: `' . print_r( $response, true ) . '`.' );
+						BackupBuddy_Stash_API::send_fallback_upload_results( $settings, 'Error #23972793: Error notifying Stash of upload success even after wait. Details: `' . print_r( $response, true ) . '`.' );
 						return false;
 					}
 
@@ -418,17 +438,14 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					try {
 						$response = self::$_client->completeMultipartUpload( $multipartOptions );
 					} Catch( Exception $e ) {
-						return self::_error( 'Error #84397347437: Unable to notify server of completion of all parts for multipart upload `' . $settings['_multipart_id'] . '`. Parts count: `' . count( $settings['_multipart_counts'] ) . '`. Details: `' . $e->getMessage() . '`. Multipart options: `' . print_r( $multipartOptions, true ) . '`.' );
+						return self::_error( 'Error #84397347437: Unable to notify server of completion of all parts for multipart upload `' . $settings['_multipart_id'] . '`. Parts count: `' . count( $settings['_multipart_counts'] ) . '`. Details: `' . "$e" . '`. Multipart options: `' . print_r( $multipartOptions, true ) . '`.' );
 					}
 					pb_backupbuddy::status( 'details', 'Server notified of multipart completion.' );
 
 					if ( '1' == $settings['stash_mode'] ) { // Stash send confirm.
-						pb_backupbuddy::status( 'details', 'Notifying Stash of upload completion.' );
-						$additionalParams =array(
-							'upload_id' => $settings['_stash_upload_id'],
-						);
-						$response = pb_backupbuddy_destination_stash3::stashAPI( $settings, 'upload-complete', $additionalParams );
-						if ( ( ! is_array( $response ) ) || ( ! isset( $response['success'] ) ) ) { // If not array OR success key missing. May be a timeout or waiting on AWS system to combine multipart still. Check for file later.
+						$response = BackupBuddy_Stash_API::send_fallback_upload_results( $settings );
+
+						if ( false === $response ) { // May be a timeout or waiting on AWS system to combine multipart still. Check for file later.
 							$settings[ '_retry_stash_confirm' ] = true;
 							$settings['_multipart_counts'] = array(); // No more parts remain.
 
@@ -451,15 +468,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 							 */
 
 							return array( $settings['_multipart_id'], 'Pending multipart send confirmation.' );
-						} else { // Array.
-							if ( ( isset( $response['success'] ) && ( true !== $response['success'] ) ) ) { // Success key set AND not true.
-								pb_backupbuddy::status( 'error', 'Error #83298932: Error notifying Stash of upload success. Details: `' . print_r( $response, true ) . '`.' );
-								return false;
-							} else { // Success.
-								pb_backupbuddy::status( 'details', 'Stash notified of upload completition.' );
-							}
 						}
-
 					}
 				} // end not a Stash confirm retry.
 
@@ -641,7 +650,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					'Prefix' => $settings['directory'] . 'backup-' . backupbuddy_core::backup_prefix()
 				) ); // List all users files in this directory that are a backup for this site (limited by prefix).
 			} Catch( Exception $e ) {
-				return self::_error( 'Error #9338292: Unable to list files for archive limiting. Details: `' . $e->getMessage() . '`.' );
+				return self::_error( 'Error #9338292: Unable to list files for archive limiting. Details: `' . "$e" . '`.' );
 			}
 			if ( ! is_array( $response_manage['Contents'] ) ) {
 				$response_manage['Contents'] = array();
@@ -674,7 +683,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 								'Key' => $settings['directory'] . $buname,
 							) );
 						} Catch( Exception $e ) {
-							self::_error( 'Unable to delete excess Stash file `' . $buname . '`. Details: `' . $e->getMessage() . '`.' );
+							self::_error( 'Unable to delete excess Stash file `' . $buname . '`. Details: `' . "$e" . '`.' );
 							$delete_fail_count++;
 						}
 					}
@@ -726,7 +735,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 		try {
 			$response = self::$_client->listObjects( $options ); // list all the files in the subscriber account.
 		} Catch( Exception $e ) {
-			$error = 'Error #838393: Unable to list files. Details: `' . $e->getMessage() . '`. Bucket: `' . $settings['bucket'] . '`. Prefix: `' . $prefix . '`.';
+			$error = 'Error #838393: Unable to list files. Details: `' . "$e" . '`. Bucket: `' . $settings['bucket'] . '`. Prefix: `' . $prefix . '`.';
 			if ( stristr( $error, 'Please send all future requests to this endpoint' ) ) {
 				$error .= ' TO FIX THIS: Navigate to the settings for this destination and change the `Bucket region` to the correct location.';
 			}
@@ -789,7 +798,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 				),
 			) ); // list all the files in the subscriber account
 		} Catch( Exception $e ) {
-			$error = 'Error #83823233393b: Unable to delete one or more files. Details: `' . $e->getMessage() . '`.';
+			$error = 'Error #83823233393b: Unable to delete one or more files. Details: `' . "$e" . '`.';
 			self::_error( $error );
 			return $error;
 		}
@@ -924,7 +933,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 				'SaveAs' => $localDestinationFile
 			) );
 		} Catch( Exception $e ) {
-			return self::_error( 'Error #382938: Unable to retrieve file. Details: `' . $e->getMessage() . '`.' );
+			return self::_error( 'Error #382938: Unable to retrieve file. Details: `' . "$e" . '`.' );
 		}
 
 		return true;
@@ -954,7 +963,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 		try {
 			$request = self::$_client->createPresignedRequest( $command, '+60 minutes' );
 		} Catch( Exception $e ) {
-			return self::_error( 'Error #349734634: Unable to retrieve file URL. Details: `' . $e->getMessage() . '`.' );
+			return self::_error( 'Error #349734634: Unable to retrieve file URL. Details: `' . "$e" . '`.' );
 		}
 
 		$response = (string) $request->getUri();
@@ -1006,7 +1015,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 				'Bucket' => $bucket,
 			));
 		} catch (Exception $e) {
-			throw new Exception( $e->getMessage() );
+			throw new Exception( "$e" );
 		}
 
 		if ( ! isset( $result->Location ) ) { // Blank means default standard location.
@@ -1043,7 +1052,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 				'prefix' => $settings['directory'] . $backupDetectPrefix,
 			) );
 		} Catch( Exception $e ) {
-			return self::_error( 'Error #84397849347: Unable to list existing multipart uploads. Details: `' . $e->getMessage() . '`' );
+			return self::_error( 'Error #84397849347: Unable to list existing multipart uploads. Details: `' . "$e" . '`' );
 		}
 
 		if ( pb_backupbuddy::$options['log_level'] == '3' ) { // Full logging enabled.
@@ -1074,7 +1083,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					) );
 					pb_backupbuddy::status( 'details', 'Abort success.' );
 				} Catch( Exception $e ) {
-					pb_backupbuddy::status( 'error', 'Stalled Multipart Chunked abort of file `' . $upload['Key'] . '` with ID `' . $upload['UploadId'] . '` FAILED. Manually abort it. Details: `' . $e->getMessage() . '`.' );
+					pb_backupbuddy::status( 'error', 'Stalled Multipart Chunked abort of file `' . $upload['Key'] . '` with ID `' . $upload['UploadId'] . '` FAILED. Manually abort it. Details: `' . "$e" . '`.' );
 				}
 
 			} else {
@@ -1135,7 +1144,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 		} catch( Exception $e ) {
 			$detectedRegion = '';
 			$maybe_create_bucket = true;
-			$message = 'Exception retrieving information for bucket `' . $settings['bucket'] . '`. Assuming region in $settings correct. If using IAM security, verify this resource ALLOWs the action "s3:GetBucketLocation". Details: `' . $e->getMessage() . '`. Full result: `' . print_r( $result, true ) . '`.';
+			$message = 'Exception retrieving information for bucket `' . $settings['bucket'] . '`. Assuming region in $settings correct. If using IAM security, verify this resource ALLOWs the action "s3:GetBucketLocation". Details: `' . "$e" . '`. Full result: `' . print_r( $result, true ) . '`.';
 			if ( pb_backupbuddy::$options['log_level'] == '3' ) { // Full logging enabled.
 				pb_backupbuddy::status( 'details', 'Settings used due to log level: `' . print_r( $settings, true ) . '`.' );
 			}
@@ -1147,7 +1156,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 		try {
 			self::$_client->setRegion( $settings['region'] );
 		} catch( Exception $e ) {
-			throw new Exception( 'Unable to set region. Details: `' . $e->getMessage() . '`.' );
+			throw new Exception( 'Unable to set region. Details: `' . "$e" . '`.' );
 		}
 
 		// In bucket creation mode AND bucket did not already exist.
@@ -1161,7 +1170,7 @@ class pb_backupbuddy_destination_s33 { // Change class name end to match destina
 					'LocationConstraint' => $settings['region']
 				) );
 			} catch( Exception $e ) {
-				return self::_error( 'Error #3892833b: Unable to create bucket. Details: `' . $e->getMessage() . '`.' );
+				return self::_error( 'Error #3892833b: Unable to create bucket. Details: `' . "$e" . '`.' );
 			}
 
 		} // end if create bucket.

@@ -1981,3 +1981,23 @@
 	Enhancement: Adding filters for LiquidWeb UI improvements (Managed Press)
 8.3.11.0 - 2019-04-09 - Chris Jean
 	Bug Fix: Added support for a new BACKUPBUDDY_STASH_USE_LEGACY_UPLOAD define that may help some sites send files into Stash.
+8.3.12.0 - 2019-05-02 - Chris Jean, Josh Benham, Brian DiChiara
+	Enhancement: Added improved caching to the Stash Live system which can improve performance.
+	Enhancement: Added support for the Stash Live server to attempt to fix known issues that can prevent the service from functioning correctly.
+	Enhancement: Fixed error reporting in Stash Live to report error details from the AWS SDK API that were previously missing.
+8.3.13.0 - 2019-05-07 - Lew Ayotte
+	Enhancement: Custom template filter added, Destination list filter renamed
+8.3.14.0 - 2019-05-08 - Brian DiChiara, Jeremy Trask
+	Bug Fix: Corrected typo for apply_filter/s.
+8.4.15.0 - 2019-05-08 - Brian DiChiara
+	Bug Fix: Someone fat fingered the last release version.
+8.4.16.0 - 2019-06-17 - Chris Jean, Josh Benham
+	Bug Fix: Corrected an issue that caused Stash Live to send all files when creating a manual snapshot when the files were already present.
+8.4.17.0 - 2019-06-18 - Chris Jean, Josh Benham
+	Bug Fix: Some user's sites permanently cached invalid Stash Live credentials. This fix automatically clears the cache for sites that currently have this issue and adds measures to prevent it from happening in the future.
+8.4.17.1 - 2019-06-19 - Brian DiChiara, Josh Benham
+	Bug Fix: Fixes button layout issue in WP 5.2.2 update.
+8.4.18.0 - 2019-06-19 - Lew Ayotte
+	Enhancement: Version bump (that's it)
+8.4.19.0 - 2019-08-27 - Chris Jean, Josh Benham, Tyler Gilbert
+	Bug Fix: Fix for some sites that are unable to send to Stash Remote Destination (both v2 and v3).

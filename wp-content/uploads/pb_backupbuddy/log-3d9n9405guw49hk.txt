@@ -1,0 +1,22 @@
+[Oct 6, 2019 13:58:26 0-error] <b>Verify you authorized BackupBuddy access in Dropbox and copied the Dropbox authorization code exactly in the BackupBuddy field.</b><br><br>Error details: HTTP status 400
+{"error_description": "code has already been used", "error": "invalid_grant"} Error Code: 
+[Oct 6, 2019 13:59:07 0-error] [] Error #58498954: Unable to list Dropbox directory. Details: `Unexpected HTTP status 409
+{"error_summary": "path/not_found/.", "error": {".tag": "path", "path": {".tag": "not_found"}}}`.
+PHP_ERROR Error #32893. Fatal PHP error encountered:type => 1; message => Maximum execution time of 30 seconds exceeded; file => C:\MAMP\htdocs\asespv\wp-content\plugins\backupbuddy\destinations\dropbox2\lib\Dropbox\Curl.php; line => 89; .
+[Oct 6, 2019 20:17:55 0-error] [] Error #389434. Integrity test FAILED. Test: `Database SQL file`.
+[Oct 6, 2019 20:18:22 0-error] [] Error #389434. Integrity test FAILED. Test: `Database SQL file`.
+[Oct 6, 2019 20:19:05 0-error] [] Error #3892383: File `C:\MAMP\htdocs\asespv/wp-content/uploads/backupbuddy_backups/backup-asespv_eus-2019_10_06-08_15pm-full-q4rzo3p96p.zip` does not exist or blocked by permissions. Was it deleted?
+---
+Fatal PHP error encountered:
+type => 1
+message => Maximum execution time of 30 seconds exceeded
+file => C:\MAMP\htdocs\asespv\wp-content\plugins\backupbuddy\destinations\dropbox2\lib\Dropbox\Curl.php
+line => 89
+---
+---
+Fatal PHP error encountered:
+type => 1
+message => Maximum execution time of 30 seconds exceeded
+file => C:\MAMP\htdocs\asespv\wp-content\plugins\backupbuddy\destinations\dropbox2\lib\Dropbox\Curl.php
+line => 89
+---
