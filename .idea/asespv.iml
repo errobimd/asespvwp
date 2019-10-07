@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/wp-admin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/wp-includes" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/wp-content/uploads/backupbuddy_backups" />
+      <excludeFolder url="file://$MODULE_DIR$/wp-content/uploads/backupbuddy_temp" />
       <excludeFolder url="file://$MODULE_DIR$/wp-content/uploads/pb_backupbuddy" />
     </content>
     <orderEntry type="inheritedJdk" />
