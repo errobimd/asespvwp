@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>asespb</title>
-    <link rel="icon" type="image/png" sizes="undefinedxundefined" href="assets/img/aseslogo.png?h=8ec2db803c9ffdbe46435e40ca668d71">
-    <link rel="icon" type="image/png" sizes="undefinedxundefined" href="assets/img/ases.png?h=6ee3b480ae4a57cd8f63259d1354ef06">
+    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<<?php print(get_template_directory_uri());?>/assets/img/aseslogo.png>
+    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<<?php print(get_template_directory_uri());?>/assets/img/ases.png>
 	<?php wp_head();?>
     <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=462dc43c75af8bcc6981d7e1aa258be6">-->
     <link rel="manifest" href="manifest.json?h=d9416c47a5d4c0093688b57d33f5d6dd">
@@ -23,7 +23,8 @@
     <!-- Start: Cabecera -->
     <section class="container">
         <div class="row">
-            <div class="col text-center"><img class="img-fluid" src="assets/img/ases.png?h=6ee3b480ae4a57cd8f63259d1354ef06"></div>
+
+            <div class="col text-center"><img class="img-fluid" src=<?print (get_template_directory_uri().'/assets/img/ases.png');?>></div>
         </div>
     </section>
     <!-- End: Cabecera -->
