@@ -5,8 +5,8 @@
 
 function asespv_scripts (){
 	/*Styles*/
-	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'/assets/bootstrap/css/bootstrap.min.css',false,false,);
-	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/fonts/font-awesome.min.css',false,false,);
+	wp_enqueue_style('bootstrap_css',get_template_directory_uri().'/assets/bootstrap/css/bootstrap.min.css',false,false,);
+	/*wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/fonts/font-awesome.min.css',false,false,);
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/Article-Clean.css',false,false,);
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/Article-Dual-Column.css?',false,false,);
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/Article-List.css',false,false,);
