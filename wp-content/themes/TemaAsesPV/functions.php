@@ -14,6 +14,10 @@ function asespv_scripts (){
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/styles.css',false,false,);*/
 	/*style.css tambien lo tenemos que cargar y hacerlo dependiente de bootstrap*/
 	wp_enqueue_style('style',get_stylesheet_uri(),array('bootstrap_css'));
+	/*scripts*/
+	wp_enqueue_script('jquery'); // no necesita especificar la ruta porque ya viene integrado en wordpress
+	wp_enqueue_script('bootstrap_js',get_template_directory_uri().'/assets/bootstrap/js/bootstrap.min.js',array('jquery'),false,false);
+
 }
 /*Engancha una función a una acción específica.*/
 add_action('wp_enqueue_scripts','asespv_scripts');
