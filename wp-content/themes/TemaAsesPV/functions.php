@@ -12,7 +12,8 @@ function asespv_scripts (){
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/Article-List.css',false,false,);
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/Projects-Clean.css',false,false,);
 	wp_enqueue_style(bootstrap_css,get_template_directory_uri().'assets/css/styles.css',false,false,);*/
-	wp_enqueue_style('style',get_template_directory_uri(),array('bootstrap_css'));
+	/*style.css tambien lo tenemos que cargar y hacerlo dependiente de bootstrap*/
+	wp_enqueue_style('style',get_stylesheet_uri(),array('bootstrap_css'));
 }
 /*Engancha una función a una acción específica.*/
 add_action('wp_enqueue_scripts','asespv_scripts');
