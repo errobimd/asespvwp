@@ -28,3 +28,79 @@
         </div>
     </section>
     <!-- End: Cabecera -->
+    <!-- Start: Barra Navegación -->
+    <section class="container">
+        <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark border-warning border rounded">
+            <div class="container-fluid">
+                <!-- Start: Logotipo --><a class="navbar-brand" href="index.html">ASES Euskadi</a>
+                <!-- End: Logotipo -->
+                <!-- Start: NavBar Toggle --><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <!-- End: NavBar Toggle -->
+                <div class="collapse navbar-collapse justify-content-end" id="navcol-1">
+                    <!-- Start: Menu Navegacion -->
+                    <ul class="nav navbar-nav">
+                        <!-- Start: Blog -->
+                        <li class="nav-item" role="presentation">
+                            <!-- Start: Item Blog --><a class="nav-link" href="blog.html">Blog</a>
+                            <!-- End: Item Blog -->
+                        </li>
+                        <!-- End: Blog -->
+                        <!-- Start: Menu Sobre Nosotros -->
+                        <li class="nav-item" role="presentation">
+                            <!-- Start: Item Sobre Nosotros --><a class="nav-link" href="nosotros.html">Sobre Nosotros</a>
+                            <!-- End: Item Sobre Nosotros -->
+                        </li>
+                        <!-- End: Menu Sobre Nosotros -->
+                        <!-- Start: Menu Contacto -->
+                        <li class="nav-item" role="presentation">
+                            <!-- Start: Item Contacto --><a class="nav-link" href="contacto.html">Contacto</a>
+                            <!-- End: Item Contacto -->
+                        </li>
+                        <!-- End: Menu Contacto -->
+                        <!-- Start: Menu Eventos -->
+                        <li class="nav-item" role="presentation">
+                            <!-- Start: Item Eventos --><a class="nav-link" href="eventos.html">Eventos</a>
+                            <!-- End: Item Eventos -->
+                        </li>
+                        <!-- End: Menu Eventos -->
+                        <!-- Start: Menu Proyectos -->
+                        <li class="nav-item" role="presentation">
+                            <!-- Start: Item Proyectos --><a class="nav-link" href="proyectos.html">Proyectos</a>
+                            <!-- End: Item Proyectos -->
+                        </li>
+                        <!-- End: Menu Proyectos -->
+                        <!-- Start: Menu Desplega Ases España -->
+                        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: rgba(255,255,255,0.5);">Ases España</a>
+                            <div class="dropdown-menu border rounded" role="menu" style="background-color: rgb(52,58,64);">
+                                <!-- Start: Menu Madrid --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Madrid</a>
+                                <!-- End: Menu Madrid -->
+                                <!-- Start: Menu Cataluña --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Cataluña</a>
+                                <!-- End: Menu Cataluña -->
+                                <!-- Start: Menu Andalucia --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Andalucia</a>
+                                <!-- End: Menu Andalucia -->
+                            </div>
+                        </li>
+                        <!-- End: Menu Desplega Ases España -->
+                        <!-- Start: Menu Desplega Ases Internacional -->
+                        <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#" style="color: rgba(255,255,255,0.5);">Ases Internacional</a>
+                            <div class="dropdown-menu border rounded" role="menu" style="background-color: rgb(52,58,64);">
+                                <!-- Start: Menu Mexico --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">México</a>
+                                <!-- End: Menu Mexico -->
+                                <!-- Start: Menu Colombia --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Colómbia</a>
+                                <!-- End: Menu Colombia -->
+                                <!-- Start: Menu Argentina --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Argentina</a>
+                                <!-- End: Menu Argentina -->
+                                <!-- Start: Menu Urugay --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Urugay</a>
+                                <!-- End: Menu Urugay -->
+                                <!-- Start: Menu Chile --><a class="dropdown-item" role="presentation" href="#" style="color: rgb(128,150,159);">Chile</a>
+                                <!-- End: Menu Chile -->
+                            </div>
+                        </li>
+                        <!-- End: Menu Desplega Ases Internacional -->
+                    </ul>
+                    <!-- End: Menu Navegacion -->
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- End: Barra Navegación -->
