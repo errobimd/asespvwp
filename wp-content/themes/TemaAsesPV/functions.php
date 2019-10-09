@@ -16,7 +16,7 @@ function asespv_scripts (){
 	wp_enqueue_style('style',get_stylesheet_uri(),array('bootstrap_css'));
 	/*scripts*/
 	wp_enqueue_script('jquery'); // no necesita especificar la ruta porque ya viene integrado en wordpress
-	wp_enqueue_script('bootstrap_js',get_template_directory_uri().'/assets/bootstrap/js/bootstrap.min.js',array('jquery'),false,false);
+	wp_enqueue_script('bootstrap_js',get_template_directory_uri().'/assets/bootstrap/js/bootstrap.min.js',array('jquery'),false,true);
 
 }
 /*Engancha una función a una acción específica.*/
