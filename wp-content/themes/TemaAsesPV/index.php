@@ -1,3 +1,5 @@
 <?php
 	get_header();
-	echo "Hola Mundo Version Inicial nuevo cambio";
+	echo "Aqui va el header";
+	get_footer();
+	echo "Aqui va el footer";
