@@ -1,4 +1,13 @@
 <?php
+
+/*
+ * Funciones que se cargan al activar el tema.
+ */
+function asespv_setup (){
+
+}
+
+add_action('after_setup_theme','asespv_setup'); //Este es el gancho que wordpress nos da para añadir un menu de navegacion y mas funciones
 /*
  *  Carga los script y los CSS del tema
  */
