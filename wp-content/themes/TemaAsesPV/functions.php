@@ -12,6 +12,22 @@ function asespv_setup (){
 }
 /*Agregamos la clase nav=link de bootstrap al menu principal mediante un filtro*/
 
+/**
+ * @param $atts
+ * @param $item
+ * @param $args
+ */
+function asespv_enlace_class($atts,$item,$args){
+	if($args->theme_location=='menu_principal'){ // Si el tema es menu_principal
+		$atts['class']='nav-link'; // Agregamos a la clase nav-link
+	}
+	return $atts; // Nos retorna los nuevos atributos
+
+}
+
+
+
+
 add_action('after_setup_theme','asespv_setup'); //Este es el gancho que wordpress nos da para añadir un menu de navegacion y mas funciones
 /*
  *  Carga los script y los CSS del tema
