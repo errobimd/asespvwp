@@ -103,6 +103,9 @@
             <?php
 
                 wp_nav_menu(array(
+                        'menu_class'=>'navbar navbar-dark navbar-expand-md sticky-top bg-dark border-warning border rounded',
+                        'container_id'=> 'navcol-1',
+                        'container_class'=> 'collapse navbar-collapse justify-content-end',
                         'theme_location'=> 'menu_principal'
 
                 ))
