@@ -4,7 +4,10 @@
  * Funciones que se cargan al activar el tema.
  */
 function asespv_setup (){
-
+	// Menu de navegacion
+	register_nav_menus(array(
+		'menu_principal'=> 'Menu Principal'
+	));
 }
 
 add_action('after_setup_theme','asespv_setup'); //Este es el gancho que wordpress nos da para añadir un menu de navegacion y mas funciones
