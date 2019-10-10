@@ -6,7 +6,8 @@
 function asespv_setup (){
 	// Menu de navegacion
 	register_nav_menus(array(
-		'menu_principal'=> 'Menu Principal'
+		/*https://developer.wordpress.org/reference/functions/esc_html__/*/
+		'menu_principal'=> esc_html__('Menu Principal','asepv')
 	));
 }
 
