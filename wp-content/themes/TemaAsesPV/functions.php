@@ -24,7 +24,7 @@ function asespv_enlace_class($atts,$item,$args){
 	return $atts; // Nos retorna los nuevos atributos
 
 }
-
+add_filter('nav_menu_link_attributes','asespv_enlace_class',10,3);
 
 
 
