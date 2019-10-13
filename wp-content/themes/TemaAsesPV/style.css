@@ -7,3 +7,6 @@
     License: GNU General Public License v2 o later
     Text Domain: asespv
 */
+#menu-menu-principal {
+    list-style-type: none;
+}
