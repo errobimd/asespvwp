@@ -5,7 +5,7 @@
 			<p>Todos los derechos reservados</p>
 		</div>
 		<div class="col text-center">
-			<p>ASES Pais Vasco (Euskadi)</p>
+			<p>ASES España</p>
 		</div>
 	</div>
 </footer>
