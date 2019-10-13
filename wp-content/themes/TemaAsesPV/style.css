@@ -7,6 +7,7 @@
     License: GNU General Public License v2 o later
     Text Domain: asespv
 */
+/*Quitar el punto del item del menu de navegacion*/
 #menu-menu-principal {
     list-style-type: none;
 }
