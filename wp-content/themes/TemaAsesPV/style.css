@@ -11,3 +11,8 @@
 #menu-menu-principal {
     list-style-type: none;
 }
+/*Poner menos separacion entre items en el menu de navegacion*/
+.nav-link {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}
