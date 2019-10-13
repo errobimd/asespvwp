@@ -10,6 +10,8 @@ function asespv_setup (){
 		'menu_principal'=> esc_html__('Menu Principal','asepv')
 	));
 }
+add_action('after_setup_theme','asespv_setup'); //Este es el gancho que wordpress nos da para añadir un menu de navegacion y mas funciones
+
 /*Agregamos la clase nav=link de bootstrap al menu principal mediante un filtro*/
 
 /**
@@ -28,7 +30,7 @@ add_filter('nav_menu_link_attributes','asespv_enlace_class',10,3);
 
 
 
-add_action('after_setup_theme','asespv_setup'); //Este es el gancho que wordpress nos da para añadir un menu de navegacion y mas funciones
+
 /*
  *  Carga los script y los CSS del tema
  */
