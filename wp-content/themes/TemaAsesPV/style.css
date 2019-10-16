@@ -10,6 +10,7 @@
 /*Quitar el punto del item del menu de navegacion*/
 #menu-menu-principal {
     list-style-type: none;
+    font-size: 1.45vw;
 }
 /*Poner menos separacion entre items en el menu de navegacion*/
 .nav-link {
