@@ -9,7 +9,7 @@
         </div>
         <!-- End: Intro -->
         <div class="row">
-            // LOOP para mostrar los post segun esta definido el numero de post por pagina
+            <!--LOOP para mostrar los post segun esta definido el numero de post por pagina-->
 	        <?php while (have_posts()):the_post(); ?>
             <div class="col-sm-6 col-lg-5 col-xl-5 offset-lg-1 item">
                 <img class="img-fluid" src="assets/img/building.jpg">
@@ -20,7 +20,7 @@
                 <p class="border rounded border-info shadow description" style="margin-bottom: 15px;">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
             </div>
 	        <?php endwhile; ?>
-            // FIN del LOOP
+            <!--FIN del LOOP-->
         </div>
     </div>
 </div>
