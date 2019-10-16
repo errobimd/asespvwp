@@ -4,6 +4,9 @@
  * Funciones que se cargan al activar el tema.
  */
 function asespv_setup (){
+	// Definir el tamaño de la imagenes
+	add_image_size('mediano',510,340,true);
+
 	// Menu de navegacion
 	register_nav_menus(array(
 		/*https://developer.wordpress.org/reference/functions/esc_html__/*/
