@@ -40,7 +40,7 @@
 
                        wp_nav_menu(array(
                                /*menu_class nos crea una lista ordenada */
-                               'menu_class'=>'navbar navbar-dark navbar-expand-md sticky-top bg-dark ',
+                               'menu_class'=>'navbar navbar-dark navbar-expand-md sticky-top bg-dark',
                                'container_id'=> 'navcol-1',
                                'container_class'=> 'collapse navbar-collapse justify-content-end',
                                 'theme_location'=> 'menu_principal'
