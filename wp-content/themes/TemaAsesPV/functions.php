@@ -6,6 +6,7 @@
 function asespv_setup (){
 	// Definir el tamaño de la imagenes
 	add_image_size('mediano',510,340,true);
+	// Nos permite poner imagenes destacadas en el post
 	add_theme_support( 'post-thumbnails' );
 
 	// Menu de navegacion
