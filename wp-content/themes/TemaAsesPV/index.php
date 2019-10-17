@@ -19,8 +19,9 @@
                 para que sea responsibe-->
                 <!--<img class="img-fluid" src="assets/img/building.jpg">-->
                 <?php the_post_thumbnail('pequeño',array('class'=>'img-fluid border rounded border-info shadow'));?>
-                <!--Poner la fecha de cada post-->
+
                 <div style="font-size: 11px;">
+                    <!--Poner la fecha de cada post-->
                     <span style="font-size: 10px;">Artículo creado el : <?php the_time(get_option('date_format'));?>&nbsp;
                     </span>
                 </div>
