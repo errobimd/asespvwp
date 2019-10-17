@@ -12,6 +12,9 @@
             <!--LOOP para mostrar los post segun esta definido el numero de post por pagina-->
 	        <?php while (have_posts()):the_post(); ?>
             <div class="col-sm-6 col-lg-5 col-xl-5 offset-lg-1 item">
+                <!--Ponemos en titulo del articulo dependiendo del post actual-->
+                <!--<h3 class="name"><strong>Título Artículo</strong></h3>-->
+                <h3 class="name"><strong><?php the_title();?></strong></h3>
                 <!--Definimos el tamaño de la imagen y le asignamos la clases img-fluid
                 para que sea responsibe-->
                 <!--<img class="img-fluid" src="assets/img/building.jpg">-->
