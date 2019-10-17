@@ -70,3 +70,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 !/wp-content/themes/TemaAsesPV/debug.log
+!/wp-content/uploads/2019/
+!/wp-content/uploads/
