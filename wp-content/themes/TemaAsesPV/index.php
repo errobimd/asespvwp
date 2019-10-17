@@ -12,8 +12,10 @@
             <!--LOOP para mostrar los post segun esta definido el numero de post por pagina-->
 	        <?php while (have_posts()):the_post(); ?>
             <div class="col-sm-6 col-lg-5 col-xl-5 offset-lg-1 item">
-                <img class="img-fluid" src="assets/img/building.jpg">
-                <?php the_post_thumbnail();?>
+                <!--Definimos el tamaño de la imagen y le asignamos la clases img-fluid
+                para que sea responsibe-->
+                <!--<img class="img-fluid" src="assets/img/building.jpg">-->
+                <?php the_post_thumbnail('mediano',array('class'=>'img-fluid'));?>
                 <h3 class="name"><strong>Título Artículo</strong></h3>
                 <div style="font-size: 11px;"><span style="font-size: 10px;">Artículo creado el : 6 Octubre 2019&nbsp;</span></div>
                 <div><span style="font-size: 10px;">Autor : Admin&nbsp;</span></div>
