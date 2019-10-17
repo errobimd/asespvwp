@@ -19,8 +19,8 @@
                 para que sea responsibe-->
                 <!--<img class="img-fluid" src="assets/img/building.jpg">-->
                 <?php the_post_thumbnail('pequeño',array('class'=>'img-fluid border rounded border-info shadow'));?>
-
-                <div style="font-size: 11px;"><span style="font-size: 10px;">Artículo creado el : 6 Octubre 2019&nbsp;</span></div>
+                <!--Poner la fecha de cada post-->
+                <div style="font-size: 11px;"><span style="font-size: 10px;">Artículo creado el : <?php the_time(get_option('date_format'));?>&nbsp;</span></div>
                 <div><span style="font-size: 10px;">Autor : Admin&nbsp;</span></div>
                 <p class="border rounded border-info shadow description" style="margin-bottom: 15px;">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
             </div>
