@@ -26,7 +26,7 @@
                     </span>
                 </div>
                 <div>
-                    <span style="font-size: 10px;">Autor : Admin&nbsp;
+                    <span style="font-size: 10px;">Autor : <a href="#">Admin</a>&nbsp;
                     </span>
                 </div>
                 <p class="border rounded border-info shadow description" style="margin-bottom: 15px;">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
