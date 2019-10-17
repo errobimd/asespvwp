@@ -15,7 +15,7 @@
                 <!--Definimos el tamaño de la imagen y le asignamos la clases img-fluid
                 para que sea responsibe-->
                 <!--<img class="img-fluid" src="assets/img/building.jpg">-->
-                <?php the_post_thumbnail('mediano',array('class'=>'img-fluid'));?>
+                <?php the_post_thumbnail('pequeño',array('class'=>'img-fluid'));?>
 
                 <!--Ponemos en titulo del articulo dependiendo del post actual-->
                 <!--<h3 class="name"><strong>Título Artículo</strong></h3>-->
