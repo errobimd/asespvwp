@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>asespb</title>
-    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<?php print(get_template_directory_uri());?>/assets/img/aseslogo.png
-    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<?php print(get_template_directory_uri());?>/assets/img/ases.png
+    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<?php print(get_template_directory_uri());?>/assets/img/aseslogo.png />
+    <link rel="icon" type="image/png" sizes="undefinedxundefined" href=<?php print(get_template_directory_uri());?>/assets/img/ases.png />
 	<?php wp_head();?>
     <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=462dc43c75af8bcc6981d7e1aa258be6">-->
     <link rel="manifest" href="manifest.json?h=d9416c47a5d4c0093688b57d33f5d6dd">
