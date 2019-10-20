@@ -1,4 +1,8 @@
 <?php
+/*
+ *  Añadir los Post Types para la seccion de noticias
+ */
+require_once dirname(__FILE__).'/assets/inc/posttypes.php';
 
 /*
  * Funciones que se cargan al activar el tema.
