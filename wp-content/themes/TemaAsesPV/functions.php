@@ -5,6 +5,10 @@
  * */
 require_once dirname(__FILE__).'/cmb2.php';
 /*
+ * Carga campos personalizados
+ * */
+require_once dirname(__FILE__).'/assets/inc/custom_fields.php';
+/*
  *  Añadir los Post Types para la seccion de noticias
  */
 require_once dirname(__FILE__).'/assets/inc/posttypes.php';
