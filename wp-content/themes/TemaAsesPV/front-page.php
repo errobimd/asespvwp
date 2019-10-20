@@ -2,7 +2,7 @@
     <!-- Start: Noticias y Eventos -->
     <section class="container">
         <div class="row">
-            <?php ases_query_noticias()?>
+            <?php ases_query_noticias(1)?>
             <!-- Start: Noticias -->
             <div class="col" style="margin-bottom: 0.5rem;">
                 <h1 class="text-center" style="font-size: 3vw;">Noticias</h1>
