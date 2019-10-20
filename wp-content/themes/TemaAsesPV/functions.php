@@ -3,7 +3,7 @@
  * Añadir CMB2
  *
  * */
-require_once dirname(__FILE__).'/example-functions.php';
+require_once dirname(__FILE__).'/cmb2.php';
 /*
  *  Añadir los Post Types para la seccion de noticias
  */
