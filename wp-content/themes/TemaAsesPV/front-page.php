@@ -2,11 +2,11 @@
     <!-- Start: Noticias y Eventos -->
     <section class="container">
         <div class="row">
-            <?php ases_query_noticias(1)?>
             <!-- Start: Noticias -->
             <div class="col" style="margin-bottom: 0.5rem;">
                 <h1 class="text-center" style="font-size: 3vw;">Noticias</h1>
                 <div class="card-group">
+	                <?php ases_query_noticias(1)?>
                     <div class="card border rounded" style="margin-right: 0.5rem;"><img class="img-fluid card-img-top w-100 d-block" src="http://lorempixel.com/400/200/">
                         <div class="card-body text-center" style="background-color: #c9e8dd;">
                             <h4 class="card-title" style="font-size: 2vw;">Noticia 1</h4>
