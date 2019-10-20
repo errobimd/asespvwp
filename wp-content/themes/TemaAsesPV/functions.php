@@ -1,5 +1,10 @@
 <?php
 /*
+ * Añadir CMB2
+ *
+ * */
+require_once dirname(__FILE__).'/example-functions.php';
+/*
  *  Añadir los Post Types para la seccion de noticias
  */
 require_once dirname(__FILE__).'/assets/inc/posttypes.php';
