@@ -6,7 +6,7 @@ function ases_query_noticias ($cantidad=-1){
 	);
 	$noticias = new WP_Query($args);
 	while ($noticias->have_posts()):$noticias->the_post();
-	printf('<pre>%s</pre>',var_export(get_post_custom(get_the_ID()),true))
+	/*printf('<pre>%s</pre>',var_export(get_post_custom(get_the_ID()),true))*/
 
 	?>
 		<div class="card border rounded" style="margin-right: 0.5rem;"><img class="img-fluid card-img-top w-100 d-block" src="http://lorempixel.com/400/200/">
