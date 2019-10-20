@@ -1,5 +1,11 @@
 <?php
 /*
+ * Queries reutilizables
+ *
+ * */
+require_once dirname(__FILE__).'/assets/inc/queries.php';
+/*
+/*
  * Añadir CMB2
  *
  * */
