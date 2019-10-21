@@ -17,11 +17,20 @@ function ases_query_noticias ($cantidad=-1){
                     <!--Noticia 1-->
                     <?php the_title();?>
                 </h4>
-				<p class="text-justify card-text" style="font-size: 1vw;">
-                    <!--Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.-->
-                    <?php the_content();?>
-                </p>
-                <button class="btn btn-primary" type="button" style="font-size: 1vw;">Saber Más
+				    <!--Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.-->
+
+					<?php
+                    /*Este codigo nos permite poner estilos en el parrafo porque get_the_content pone su
+                    propio parrafo sin estilos */
+					$texto_contenido = get_the_content();
+					/*Recogemos el contenido a traves del filtro para poner los estilos en el parrafo
+					mas info https://wordpress.stackexchange.com/questions/72681/how-to-add-an-inline-style-to-the-p-tag-outputted-in-the-content-using-php*/
+					$texto_contenido = apply_filters('the_content', $texto_contenido);
+					$remplazar = '<p class="text-justify card-text" style="font-size: 1vw;">';
+					echo str_replace('<p>', $remplazar, $texto_contenido);
+					?>
+                 <button class="btn btn-primary" type="button" style="font-size: 1vw;">
+                     Saber Más
                 </button>
             </div>
 		</div>
