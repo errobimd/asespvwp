@@ -7,14 +7,6 @@
                 <h1 class="text-center" style="font-size: 3vw;">Noticias</h1>
                 <div class="card-group">
 	                <?php ases_query_noticias(1)?>
-
-                    <!-- Start: Se oculta en pantallas pequeñas -->
-                    <div class="card border rounded d-sm-none d-md-block"><img class="img-fluid card-img-top w-100 d-block" src="http://lorempixel.com/400/200/">
-                        <div class="card-body text-center" style="background-color: #c9e8dd;">
-                            <h4 class="card-title" style="font-size: 2vw;">Noticia 2</h4>
-                            <p class="text-justify card-text" style="font-size: 1vw;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button" style="font-size: 1vw;">Saber Más</button></div>
-                    </div>
-                    <!-- End: Se oculta en pantallas pequeñas -->
                 </div>
             </div>
             <!-- End: Noticias -->
