@@ -12,7 +12,7 @@
             <!-- End: Noticias -->
             <!-- Start: Eventos -->
             <div class="col" style="margin-bottom: 0.5rem;">
-                <h1 class="text-center" style="font-size: 3vw;">Noticias</h1>
+                <h1 class="text-center" style="font-size: 3vw;">Eventos</h1>
                 <div class="card-group">
 			        <?php ases_query_eventos(1)?>
                 </div>
