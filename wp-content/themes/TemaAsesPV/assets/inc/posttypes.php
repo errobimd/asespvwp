@@ -42,7 +42,7 @@ function ases_posttype_noticias() {
 		// true como paginas (pueden tener hijos), false como posts (no tienen hijos)
 		'hierarchical'       => false,
 		'menu_position'      => 6,
-		'supports'           => array( 'title', 'editor',  'thumbnail' ),
+		'supports'           => array( 'title', 'editor',  'thumbnail','excerpt' ),
 		'show_in_rest'       => true,
 		'rest_base'          => 'noticias'
 	);
