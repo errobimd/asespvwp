@@ -22,12 +22,12 @@ function ases_query_noticias ($cantidad=-1){
 					<?php
                     /*Este codigo nos permite poner estilos en el parrafo porque get_the_content pone su
                     propio parrafo sin estilos */
-					$texto_contenido = get_the_content();
+					$the_excerpt = get_the_excerpt();
 					/*Recogemos el contenido a traves del filtro para poner los estilos en el parrafo
 					mas info https://wordpress.stackexchange.com/questions/72681/how-to-add-an-inline-style-to-the-p-tag-outputted-in-the-content-using-php*/
-					$texto_contenido = apply_filters('the_content', $texto_contenido);
+					$the_excerpt = apply_filters('the_excerpt', $the_excerpt);
 					$remplazar = '<p class="text-justify card-text" style="font-size: 1vw;">';
-					echo str_replace('<p>', $remplazar, $texto_contenido);
+					echo str_replace('<p>', $remplazar, $the_excerpt);
 					?>
                  <button class="btn btn-primary" type="button" style="font-size: 1vw;">
                      Saber Más
