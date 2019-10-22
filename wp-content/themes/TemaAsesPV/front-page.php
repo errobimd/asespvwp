@@ -12,20 +12,9 @@
             <!-- End: Noticias -->
             <!-- Start: Eventos -->
             <div class="col" style="margin-bottom: 0.5rem;">
-                <h1 class="text-center" style="font-size: 3vw;">Eventos</h1>
-                <div class="card-group border-warning">
-                    <div class="card border rounded" style="margin-right: 0.5rem;"><img class="img-fluid card-img-top w-100 d-block border rounded" src="http://lorempixel.com/400/200/">
-                        <div class="card-body text-center" style="background-color: #c9e8dd;">
-                            <h4 class="card-title" style="font-size: 2vw;">Evento 1</h4>
-                            <p class="text-justify card-text" style="font-size: 1vw;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button" style="font-size: 1vw;">¿Cuando es?</button></div>
-                    </div>
-                    <!-- Start: Se oculta en pantallas pequeñas -->
-                    <div class="card d-sm-none d-md-block"><img class="rounded img-fluid card-img-top w-100 d-block" src="http://lorempixel.com/400/200/">
-                        <div class="card-body text-center" style="background-color: #c9e8dd;">
-                            <h4 class="card-title" style="font-size: 2vw;">Evento 2</h4>
-                            <p class="text-justify card-text" style="font-size: 1vw;">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p><button class="btn btn-primary" type="button" style="font-size: 1vw;">¿Cuando es?</button></div>
-                    </div>
-                    <!-- End: Se oculta en pantallas pequeñas -->
+                <h1 class="text-center" style="font-size: 3vw;">Noticias</h1>
+                <div class="card-group">
+			        <?php ases_query_eventos(1)?>
                 </div>
             </div>
             <!-- End: Eventos -->
