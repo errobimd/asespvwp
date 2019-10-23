@@ -74,3 +74,6 @@ fabric.properties
 !/wp-content/uploads/
 !/wp-content/themes/TemaAsesPV.zip
 !/wp-content/themes/TemaAsesPV/debug.log
+!/wp-content/themes/twentynineteen/
+!/wp-content/themes/twentyseventeen/
+!/wp-content/themes/twentysixteen/
