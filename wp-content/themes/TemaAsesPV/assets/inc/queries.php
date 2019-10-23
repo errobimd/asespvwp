@@ -93,3 +93,19 @@ function ases_query_eventos ($cantidad=-1)
 </div>
 <?php
 }
+
+function ases_query_articulos ($cantidad=-1)
+{
+	$args=array(
+		'post_type'=> 'post',
+		'showposts'=> $cantidad // -1 son todas la noticias.
+	);
+	$noticias = new WP_Query($args);?>
+			<?php while ($noticias->have_posts()):$noticias->the_post();
+				/*printf('<pre>%s</pre>',var_export(get_post_custom(get_the_ID()),true))*/
+				?>
+
+			<?php endwhile;wp_reset_postdata();
+
+
+}
