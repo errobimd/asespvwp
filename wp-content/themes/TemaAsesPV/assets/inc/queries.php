@@ -7,7 +7,7 @@ function ases_query_noticias ($cantidad=-1)
 {
 	$args=array(
 		'post_type'=> 'noticias',
-		'post_per_page'=>$cantidad // -1 son todas la noticias.
+		'showposts'=> $cantidad // -1 son todas la noticias.
 	);
 	$noticias = new WP_Query($args);?>
 <div class="col" style="margin-bottom: 0.5rem;">
@@ -54,7 +54,7 @@ function ases_query_eventos ($cantidad=-1)
 {
 	$args=array(
 		'post_type'=> 'eventos',
-		'post_per_page'=>$cantidad // -1 son todos los eventos.
+		'showposts'=> $cantidad, // -1 son todos los eventos.
 	);
 	$eventos = new WP_Query($args);?>
 <div class="col" style="margin-bottom: 0.5rem;">

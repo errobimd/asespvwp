@@ -6,7 +6,7 @@
 	                <?php ases_query_noticias(1)?>
             <!-- End: Noticias -->
             <!-- Start: Eventos -->
-			        <?php ases_query_eventos(1)?>
+			        <?php ases_query_eventos(2)?>
             <!-- End: Eventos -->
         </div>
     </section>
@@ -20,6 +20,7 @@
         </div>
         <div class="row">
             <div class="col" style="margin-bottom: 0.5rem;">
+                <?php ases_query_articulos(1)?>
                 <div class="card-group">
                     <div class="card border rounded" style="margin-right: 0.5rem;"><img class="img-fluid card-img-top w-100 d-block" src="http://lorempixel.com/400/200/">
                         <div class="card-body text-center" style="background-color: #c9e8dd;">
