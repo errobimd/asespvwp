@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="assets/css/styles.css?h=e0a0a353e4c8c860137115468f9ed6d0">-->
 </head>
 
-<body style="background-color: rgb(41,165,216);">
+<body style="background-color: rgb(255,255,255);">
     <!-- Start: Cabecera -->
     <section class="container">
         <div class="row">
