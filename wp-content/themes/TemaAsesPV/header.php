@@ -23,7 +23,7 @@
     <!-- Start: Cabecera -->
     <section class="container">
         <div class="row">
-            <a class="col text-center" href="#"><img class="img-fluid" src=<?print (get_template_directory_uri().'/assets/img/ases.png');?>></a>
+            <a class="col text-center " href="#"><img class="img-fluid" style="margin-bottom: 0.5rem;margin-top: 0.5rem" src=<?print (get_template_directory_uri().'/assets/img/ases.png');?>></a>
         </div>
     </section>
     <!-- End: Cabecera -->
