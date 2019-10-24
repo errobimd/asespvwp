@@ -103,11 +103,11 @@ function ases_query_articulos ($cantidad=-1)
 		'post_type'=> 'post',
 		'showposts'=> $cantidad // -1 son todas la noticias.
 	);
-	$noticias = new WP_Query($args);?>
+	$articulos = new WP_Query($args);?>
 <div class="col" style="margin-bottom: 0.5rem;">
-    <h1 class="text-center" style="font-size: 3vw;">Eventos</h1>
+    <h1 class="text-center" style="font-size: 3vw;">Artículos</h1>
     <div class="card-group">
-			<?php while ($noticias->have_posts()):$noticias->the_post();
+			<?php while ($articulos->have_posts()):$articulos->the_post();
 				/*printf('<pre>%s</pre>',var_export(get_post_custom(get_the_ID()),true))*/
 				?>
         <div class="card border rounded" style="margin-right: 0.5rem;">
