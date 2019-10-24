@@ -1,7 +1,7 @@
 <?php get_header();?>
 <!-- Start: Projects Clean -->
-<div class="projects-clean" style="background-color: rgb(41,165,216);">
-    <div class="container" style="background-color: #29a5d8;">
+<div class="projects-clean" >
+    <div class="container" >
         <!-- Start: Intro -->
         <div class="intro">
             <h2 class="text-center" style="padding-top: 10px;padding-bottom: 10px;">Artículos</h2>
