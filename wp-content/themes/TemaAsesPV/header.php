@@ -31,7 +31,7 @@
     <section class="container">
         <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark border-warning border rounded">
             <div class="container-fluid">
-                <!-- Start: Logotipo --><a class="navbar-brand" href="index.html">ASES España</a>
+                <!-- Start: Logotipo --><a class="navbar-brand" href="<?php echo esc_url( home_url('/') ); ?>">ASES España</a>
                 <!-- End: Logotipo -->
                 <!-- Start: NavBar Toggle --><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <!-- End: NavBar Toggle -->
